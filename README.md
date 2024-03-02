@@ -1,39 +1,99 @@
 # Django_OpenAI_Assistants_API
-Research Project to Learn OpenAI Assistants API by building a Django web interface; started on 202402
 
-# Setup: Clone Repo
+Research Project to Learn OpenAI Assistants API by building a Django web interface; Started on 202402.
+
+## Setup Instructions
+
+### Clone Repo
+
+```bash
 git clone https://github.com/TweekFawkes/Django_OpenAI_Assistants_API.git
 cd chatgpt_clone
+```
 
-# Setup: Configure OpenAPI Secrect Key
+### Configure OpenAI Secret Key
+
+```bash
 cp .env-example .env
-set SECRET_KEY equal to OpenAI Key
+# Set SECRET_KEY equal to your OpenAI Key in the .env file
+```
 
-# Setup: Create Python Virutal Env (macOS)
+### Ensure We Are Using Python3
+
+```bash
+...% python --version       
+Python 3.11.7
+
+...% python3 --version
+Python 3.11.7
+```
+
+### Create Python Virtual Environment (macOS)
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
 
-# Setup: Install Python Pip & Dependencies
+(venv)...%
+```
+
+### Install Python Pip & Dependencies
+
+```bash
 pip install --upgrade pip
 python -m pip install django
 pip install openai
 pip install python-dotenv
+```
 
-# Setup: ...
+### Django Setup
+
+```bash
 python manage.py migrate
+```
 
-# Run: Python Virutal Env (macOS)
+## Operating Instructions
+
+### Activate Python Virtual Environment
+
+If not in the python virtual environment, then activate the virtual environment
+
+```bash
 source venv/bin/activate
 
-# Run: ...
+(venv)...%
+```
+
+### Running the Web Application
+
+Start the server:
+
+```bash
 cd chatgpt_clone
 python manage.py runserver
+```
 
+### Stopping the Web Application
 
+Stop the server:
 
+```bash
+CTRL+C
+```
 
+### Optionally, to exit Python Virtual Environment (macOS):
+
+```bash
+(venv)...% deactivate
+
+...%
+```
 
 # Other Random Notes Below...
+
+## VS Code Extensions
+
+```
 - macOS
 -- VS Code
 --- Docker
@@ -47,45 +107,7 @@ python manage.py runserver
 ---- Python Debugger
 ---- Rainbow CSV
 ---- WSL
+```
 
-Change to Directory:
-cd /Users/bryce/Library/CloudStorage/Dropbox/Code/BackBreaker/TextGenerator/
-python3 --version
-Python 3.11.5
-
-First Time Only, Create Python Virtual Environment:
-python3 -m venv venv
-source venv/bin/activate
-
-All other times, Activate Python Virtual Environment:
-source venv/bin/activate
-
-Optionally, to exit Python Virtual Environment:
-deactivate
-
-
-### Setup -> One-Time Only ###
-
-pip install --upgrade pip
-python -m pip install django
-pip install openai
-
-
-### Creation -> One-Time Only ###
-
-django-admin startproject chatgpt_clone
-cd chatgpt_clone
-
-python manage.py startapp chat
-
-
-
-
-
-python manage.py collectstatic
-
-
-
-
-# Refs
+# References
 - https://commons.wikimedia.org/wiki/File:Loading_icon.gif
