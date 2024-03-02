@@ -2,14 +2,27 @@
 <html>
 <head>
     <title>ChatGPT Clone</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 </head>
 <body>
+    {% load static %}
     <div id="chat-container">
         Model:</br> <input type="text" id="model-name" value="gpt-4-turbo-preview" style="width: 500px;"></br>
         Assistant Name:</br> <input type="text" id="assistant-name" value="Cybersecurity Expert" style="width: 500px;"></br>
         Assistant Instructions:</br> <input type="text" id="assistant-instructions" value="You are an expert at Cybersecurity. Please Be Helpful." style="width: 500px;"></br>
         </br>
         <div id="chat-box"></div></br>
+        <div id="loading" style="display: none;">
+            <img src="{% static 'images/spinner.gif' %}" alt="Loading...">
+        </div>
         </br>
         <input type="text" id="user-input" placeholder="Ask me anything..." style="width: 80%;">
         <button onclick="sendQuestion()">Send</button>
@@ -17,6 +30,9 @@
 
     <script>
         function sendQuestion() {
+            let loadingSpinner = document.getElementById('loading');
+            loadingSpinner.style.display = 'block'; // Show the loading spinner
+
             let modelName = document.getElementById('model-name').value;
             let userInput = document.getElementById('user-input').value;
             let assistantName = document.getElementById('assistant-name').value;
@@ -34,6 +50,7 @@
                 let chatBox = document.getElementById('chat-box');
                 chatBox.innerHTML += `<div>User: <pre>${userInput}</pre></div>`;
                 chatBox.innerHTML += `<div>Bot: <pre>${data.response}</pre></div>`;
+                loadingSpinner.style.display = 'none'; // Hide the loading spinner after receiving the response
             });
         }
     </script>
